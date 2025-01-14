@@ -1,0 +1,10 @@
+5
+1
+3
+5
+4
+2 
+array list:
+[INFO] Elapsed time for 5 pushes front :7338589050
+linked list:
+[INFO] Elapsed time for 5 pushes front :1690
