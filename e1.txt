@@ -29,7 +29,7 @@ array list:
 [DEBUG] Tried to remove 10 element(s)
 [DEBUG] removed 10 element(s)
 [DEBUG] not removed 0 element(s)
-[INFO] Elapsed time for 10 remove_at success : 1543
+[INFO] Elapsed time for 10 remove_at success : 1680
 linked list:
 [DEBUG] Tried to remove 10 element(s)
 [DEBUG] Removed 10 element(s)

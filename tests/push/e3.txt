@@ -1000,6 +1000,6 @@
 1205
 371
 array list:
-[INFO] Elapsed time for 1000 pushes front :797284
+[INFO] Elapsed time for 1000 pushes front :1016296
 linked list:
-[INFO] Elapsed time for 1000 pushes front :302190
+[INFO] Elapsed time for 1000 pushes front :167764

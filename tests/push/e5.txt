@@ -3000,6 +3000,6 @@
 4903
 450
 array list:
-[INFO] Elapsed time for 3000 pushes front :5866793
+[INFO] Elapsed time for 3000 pushes front :8137646
 linked list:
-[INFO] Elapsed time for 3000 pushes front :726529
+[INFO] Elapsed time for 3000 pushes front :518978

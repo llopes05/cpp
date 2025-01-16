@@ -2000,6 +2000,6 @@
 1399
 3669
 array list:
-[INFO] Elapsed time for 2000 pushes front :2750690
+[INFO] Elapsed time for 2000 pushes front :3742302
 linked list:
-[INFO] Elapsed time for 2000 pushes front :532723
+[INFO] Elapsed time for 2000 pushes front :467011

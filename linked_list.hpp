@@ -10,12 +10,12 @@ private:
     int_node* head, * tail;
     unsigned int size_;
 public:
-    linked_list() {
+    linked_list() { // O(1)
         this->head = 0;
         this->tail = 0;
         this->size_ = 0;
     }
-    ~linked_list() {
+    ~linked_list() { // O(n)
         int_node* current = this->head;
         while (current != nullptr) {
             int_node* to_remove = current;
@@ -23,18 +23,18 @@ public:
             delete to_remove;
         }
     }
-    unsigned int size() const { // Retorna o tamanho da lista
+    unsigned int size() const { // O(1)
         return this->size_;
     }
-    unsigned int capacitty() { // Retorna a capacidade da lista
+    unsigned int capacitty() { // O(1)
         return size_; 
     }
-    double percent_occupied() { // Retorna a porcentagem de ocupação da lista
+    double percent_occupied() { // O(1)
         if (this->size_ == 0)
             return 0.0;
         return (static_cast<double>(this->size_) / this->capacitty()) * 100.0;
     }
-    bool insert_at(unsigned int index, int value) { // Insere o elemento no índice
+    bool insert_at(unsigned int index, int value) { // O(n)
         if (index > this->size_)
             return false; // Índice fora do intervalo
 
@@ -69,31 +69,31 @@ public:
         this->size_++;
         return true; // Inseriu
     }
-    bool remove_at(unsigned int index) { // Remove o elemento no índice
-    if (index >= this->size_)
-        return false; // Não removeu
+    bool remove_at(unsigned int index) { // O(n)
+        if (index >= this->size_)
+            return false; // Não removeu
 
-    // Encontrar o nó a ser removido
-    int_node* to_remove = this->head;
-    for (unsigned int i = 0; i < index; ++i)
-        to_remove = to_remove->next;
+        // Encontrar o nó a ser removido
+        int_node* to_remove = this->head;
+        for (unsigned int i = 0; i < index; ++i)
+            to_remove = to_remove->next;
 
-    // Atualizar os ponteiros de anterior e próximo, se existirem
-    if (to_remove->prev != nullptr)
-        to_remove->prev->next = to_remove->next;
-    else
-        this->head = to_remove->next; // Se for o primeiro nó, atualizar o head
+        // Atualizar os ponteiros de anterior e próximo, se existirem
+        if (to_remove->prev != nullptr)
+            to_remove->prev->next = to_remove->next;
+        else
+            this->head = to_remove->next; // Se for o primeiro nó, atualizar o head
 
-    if (to_remove->next != nullptr)
-        to_remove->next->prev = to_remove->prev;
-    else
-        this->tail = to_remove->prev; // Se for o último nó, atualizar o tail
+        if (to_remove->next != nullptr)
+            to_remove->next->prev = to_remove->prev;
+        else
+            this->tail = to_remove->prev; // Se for o último nó, atualizar o tail
 
-    delete to_remove; // Remover o nó
-    this->size_--; // Decrementar o tamanho da lista
-    return true; // Remoção bem-sucedida
-}
-    int get_at(unsigned int index) { // Retorna o valor no índice
+        delete to_remove; // Remover o nó
+        this->size_--; // Decrementar o tamanho da lista
+        return true; // Remoção bem-sucedida
+    }
+    int get_at(unsigned int index) { // O(n)
         if (index >= this->size_)
             throw std::out_of_range("Índice fora do intervalo");
         int_node* current = this->head;
@@ -101,7 +101,7 @@ public:
             current = current->next;
         return current->value;
     }
-    void clear() { // Limpa a lista
+    void clear() { // O(n)
         int_node* current = this->head;
         while (current != nullptr) {
             int_node* to_remove = current;
@@ -112,7 +112,7 @@ public:
         this->tail = nullptr;
         this->size_ = 0;
     }
-    void push_back(int value) { // Insere um elemento no final da lista
+    void push_back(int value) { // O(1)
         int_node* new_node = new int_node;
         new_node->value = value;
         new_node->next = nullptr;
@@ -124,20 +124,20 @@ public:
             this->head = new_node;
         this->size_++;
     }
-    void push_front(int value) {
-    int_node* new_node = new int_node;
-    new_node->value = value;
-    new_node->next = this->head;
-    new_node->prev = nullptr;
-    if (this->head == nullptr)
-        this->tail = new_node;
-    else
-        this->head->prev = new_node;
-    this->head = new_node;
-    this->size_++; // Incrementa o tamanho da lista
-}
+    void push_front(int value) { // O(1)
+        int_node* new_node = new int_node;
+        new_node->value = value;
+        new_node->next = this->head;
+        new_node->prev = nullptr;
+        if (this->head == nullptr)
+            this->tail = new_node;
+        else
+            this->head->prev = new_node;
+        this->head = new_node;
+        this->size_++; // Incrementa o tamanho da lista
+    }
 
-    bool pop_back() { // Remove o último elemento da lista
+    bool pop_back() { // O(1)
         if (this->tail == nullptr)
             return false; // Lista vazia, não removeu
         int_node* to_remove = this->tail;
@@ -150,7 +150,7 @@ public:
         this->size_--;
         return true; // Removeu
     }
-    bool pop_front() { // Remove o primeiro elemento da lista
+    bool pop_front() { // O(1)
         if (this->head == nullptr)
             return false; // Lista vazia, não removeu
         int_node* to_remove = this->head;
@@ -163,17 +163,17 @@ public:
         this->size_--;
         return true; // Removeu
     }
-    int front() { // Retorna o primeiro elemento da lista
+    int front() { // O(1)
         if (this->head == nullptr)
             throw std::out_of_range("Lista vazia");
         return this->head->value;
     }
-    int back() { // Retorna o último elemento da lista
+    int back() { // O(1)
         if (this->tail == nullptr)
             throw std::out_of_range("Lista vazia");
         return this->tail->value;
     }
-    bool remove(int value) { // Remove a primeira ocorrência do valor na lista
+    bool remove(int value) { // O(n)
         int_node* current = this->head;
         while (current != nullptr) {
             if (current->value == value) {
@@ -193,7 +193,7 @@ public:
         }
         return false; // Não encontrou o valor
     }
-    int find(int value) { // Retorna o índice do valor na lista
+    int find(int value) { // O(n)
         int_node* current = this->head;
         unsigned int index = 0;
         while (current != nullptr) {
@@ -204,7 +204,7 @@ public:
         }
         return -1; // Não encontrou o valor
     }
-    int count(int value) { // Conta quantas vezes o valor aparece na lista. Retorna -1 se não encontrar
+    int count(int value) { // O(n)
         int_node* current = this->head;
         int count = 0;
         while (current != nullptr) {
@@ -214,7 +214,7 @@ public:
         }
         return (count > 0) ? count : -1;
     }
-    int sum() { // Soma todos os valores da lista
+    int sum() { // O(n)
         int_node* current = this->head;
         int sum = 0;
         while (current != nullptr) {

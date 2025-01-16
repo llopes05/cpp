@@ -10,6 +10,6 @@
 5
 13
 array list:
-[INFO] Elapsed time for 10 pushes front :20673092103
+[INFO] Elapsed time for 10 pushes front :2685
 linked list:
-[INFO] Elapsed time for 10 pushes front :2681
+[INFO] Elapsed time for 10 pushes front :1863

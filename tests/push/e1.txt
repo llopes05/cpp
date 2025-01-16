@@ -5,6 +5,6 @@
 4
 2 
 array list:
-[INFO] Elapsed time for 5 pushes front :7338589050
+[INFO] Elapsed time for 5 pushes front :922
 linked list:
-[INFO] Elapsed time for 5 pushes front :1690
+[INFO] Elapsed time for 5 pushes front :1212
